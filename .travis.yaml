@@ -8,9 +8,9 @@ node_js:
 sudo: false
 
 install:
-  - npm install
+  - npm instiall
 
-script: grunt build:travis
+script: npm run build
 
 git:
   depth: 10
