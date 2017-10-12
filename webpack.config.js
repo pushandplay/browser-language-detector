@@ -3,7 +3,7 @@ const webpack = require('webpack');
 
 module.exports = {
   target: 'web',
-  entry: './src/index.js',
+  entry: 'index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'BrowserLanguageDetector.min.js',
