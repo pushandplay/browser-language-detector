@@ -1,1 +1,1 @@
-[![NPM version][npm-version-image]][npm-url] [![NPM downloads][npm-downloads-image]][npm-url] [![MIT License][license-image]][license-url]
+[![npm](https://img.shields.io/npm/v/browser-language-detector.svg)](https://www.npmjs.com/package/browser-language-detector) [![license](https://img.shields.io/github/license/pushandplay/browser-language-detector.svg)](https://github.com/pushandplay/browser-language-detector/blob/master/LICENSE)
