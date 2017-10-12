@@ -1,0 +1,38 @@
+{
+  "name": "browserlanguagedetector",
+  "version": "0.0.1",
+  "description": "Language detector used in browser environment",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose",
+    "build": "webpack && npm test",
+    "lint": "./node_modules/.bin/eslint src/ --ext .js"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-jest": "^21.2.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb": "^16.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "jest": "^21.2.1",
+    "webpack": "^3.7.1"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  }
+}
