@@ -1,6 +1,6 @@
 {
   "name": "browserlanguagedetector",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Language detector used in browser environment",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "build": "webpack && npm test",
     "lint": "./node_modules/.bin/eslint src/ --ext .js"
   },
-  "author": "",
+  "author": "pushandplay <hello@pushandplay.ru> (https://github.com/pushandplay)",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.0",

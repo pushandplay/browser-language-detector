@@ -1,4 +1,4 @@
-import BrowserLanguageDetector from '../dist/browserLanguageDetector';
+import BrowserLanguageDetector from '../dist/BrowserLanguageDetector.min';
 
 const config = {
   defaultLanguage: 'ru'
