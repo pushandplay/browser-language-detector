@@ -6,3 +6,5 @@ src/
 .eslintignore
 .eslintrc
 .gitignore
+.npmignore
+webpack.config.js
