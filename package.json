@@ -1,6 +1,6 @@
 {
-  "name": "browserlanguagedetector",
-  "version": "0.0.2",
+  "name": "browser-language-detector",
+  "version": "0.0.3",
   "description": "Language detector used in browser environment",
   "main": "index.js",
   "scripts": {
