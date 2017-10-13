@@ -1,7 +1,7 @@
 import BrowserLanguageDetector from '../dist/BrowserLanguageDetector.min';
 
 const config = {
-  defaultLanguage: 'es'
+  fallbackLanguage: 'es'
 };
 
 describe('BrowserLanguageDetector', () => {

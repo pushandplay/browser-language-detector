@@ -11,7 +11,7 @@ class NavigatorDetector extends Detector {
         navigator.userLanguage,
         navigator.browserLanguage,
         navigator.systemLanguage,
-        this.options.defaultLanguage
+        this.options.fallbackLanguage
       )
       .filter(language => language)
       //  TODO: implement precision detection

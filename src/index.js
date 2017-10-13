@@ -3,7 +3,7 @@ import HTMLTagDetector from './detectors/HTMLTagDetector';
 import QueryStringDetector from './detectors/QueryStringDetector';
 
 const defaultOptions = {
-  defaultLanguage: 'en',
+  fallbackLanguage: 'en',
   whiteListLanguages: [],
   queryString: 'lang'
 };
@@ -38,8 +38,8 @@ class BrowserLanguageDetector {
   }
 
   static selectPreferredLanguage(languages) {
-    const navigatorLanguageIndex = languages.indexOf(this.options.defaultLanguage);
-    return languages[navigatorLanguageIndex] || this.options.defaultLanguage;
+    const navigatorLanguageIndex = languages.indexOf(this.options.fallbackLanguage);
+    return languages[navigatorLanguageIndex] || this.options.fallbackLanguage;
   }
 }
 

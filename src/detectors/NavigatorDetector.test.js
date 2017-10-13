@@ -2,7 +2,7 @@
 import NavigatorDetector from './NavigatorDetector';
 
 const config = {
-  defaultLanguage: 'ru'
+  fallbackLanguage: 'ru'
 };
 
 describe('NavigatorDetector', () => {
@@ -41,7 +41,7 @@ describe('NavigatorDetector', () => {
     });
 
     test('Showld be equal ["en", "es"]', () => {
-      expect((new NavigatorDetector({defaultLanguage: 'es'})).detect().languages).toEqual(['en', 'es']);
+      expect((new NavigatorDetector({fallbackLanguage: 'es'})).detect().languages).toEqual(['en', 'es']);
     });
   });
 });

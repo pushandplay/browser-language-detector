@@ -30,7 +30,7 @@ BrowserLanguageDetector.detect().lang;
 You can specify default fallback language
 ```javascript
 BrowserLanguageDetector
-    .config({defaultLanguage: 'zh'})
+    .config({fallbackLanguage: 'zh'})
     .detect()
     .lang;
 // zh
