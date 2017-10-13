@@ -32,14 +32,14 @@ describe('NavigatorDetector', () => {
     });
   });
 
-  Object.defineProperty(window, 'clientInformation', {
-    writable: true,
-    value: {
-      userLanguage: 'es'
-    }
-  });
-
   describe('Test with clientInformation', () => {
+    Object.defineProperty(window, 'clientInformation', {
+      writable: true,
+      value: {
+        userLanguage: 'es'
+      }
+    });
+
     test('Showld be equal ["en", "es"]', () => {
       expect((new NavigatorDetector({defaultLanguage: 'es'})).detect()).toEqual(['en', 'es']);
     });
