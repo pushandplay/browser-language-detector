@@ -15,6 +15,7 @@ class BrowserLanguageDetector {
   }
 
   static detect() {
+    this.options = this.options || defaultOptions;
     const navigatorDetector = new NavigatorDetector(this.options);
     const queryStringDetector = new QueryStringDetector(this.options);
     const htmlTagDetector = new HTMLTagDetector(this.options);

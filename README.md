@@ -19,3 +19,18 @@ Using npm:
 ```shell
 $ npm i --save browser-language-detector
 ```
+
+So... it works like this:
+
+```javascript
+BrowserLanguageDetector.detect();
+// en or your browser language
+```
+
+You can specify default fallback language
+```javascript
+BrowserLanguageDetector
+    .config({defaultLanguage: 'zh'})
+    .detect();
+// zh
+```
