@@ -2,13 +2,18 @@ import {uniq} from './utils';
 
 class Detector {
   languages = [];
+  data = {};
+
   constructor(options = {}) {
     this.options = {...this.options, ...options};
     return this;
   }
 
   detect() {
-    return uniq(this.languages);
+    return {
+      ...this.data,
+      languages: uniq(this.languages)
+    };
   }
 }
 

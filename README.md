@@ -23,7 +23,7 @@ $ npm i --save browser-language-detector
 So... it works like this:
 
 ```javascript
-BrowserLanguageDetector.detect();
+BrowserLanguageDetector.detect().lang;
 // en or your browser language
 ```
 
@@ -31,6 +31,7 @@ You can specify default fallback language
 ```javascript
 BrowserLanguageDetector
     .config({defaultLanguage: 'zh'})
-    .detect();
+    .detect()
+    .lang;
 // zh
 ```

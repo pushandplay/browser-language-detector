@@ -10,24 +10,31 @@ const defaultOptions = {
 
 class BrowserLanguageDetector {
   static config(options) {
-    this.options = {...defaultOptions, ...options};
+    this.options = {...defaultOptions, ...options, target: this};
     return this;
   }
 
   static detect() {
-    this.options = this.options || defaultOptions;
-    const navigatorDetector = new NavigatorDetector(this.options);
-    const queryStringDetector = new QueryStringDetector(this.options);
-    const htmlTagDetector = new HTMLTagDetector(this.options);
+    if (!this.options) this.config();
+    const detectors = this.getDetectors();
     const languages = []
       .concat(
-        navigatorDetector.detect(),
-        queryStringDetector.detect(),
-        htmlTagDetector.detect(),
+        detectors.navigator.languages,
+        detectors.queryString.languages,
+        detectors.htmlTag.languages,
       );
 
-    //  TODO: in progress
-    return BrowserLanguageDetector.selectPreferredLanguage(languages);
+    this.lang = this.selectPreferredLanguage(languages);
+
+    return this;
+  }
+
+  static getDetectors() {
+    return {
+      navigator: new NavigatorDetector(this.options),
+      queryString: new QueryStringDetector(this.options),
+      htmlTag: new HTMLTagDetector(this.options),
+    };
   }
 
   static selectPreferredLanguage(languages) {
