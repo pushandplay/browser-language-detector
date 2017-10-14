@@ -4,5 +4,12 @@ node_js:
   - "8"
   - "7"
   - "6"
+sudo: false
+cache:
+  directories:
+    - node_modules
+script:
+  - "npm run test"
+  - "npm run lint"
 
-after_script: "npm install coveralls && cat ./coverage/lcov.info | coveralls"
+after_script: "npm install coveralls2.10.0 && cat ./coverage/lcov.info | coveralls"
