@@ -6,7 +6,7 @@ A lightweight cross-browser JavaScript library for detecting browser language.
 
 ## Download
 
- * [Latest build](https://raw.githubusercontent.com/pushandplay/browser-language-detector/master/dist/BrowserLanguageDetector.min.js)
+[Latest build](https://raw.githubusercontent.com/pushandplay/browser-language-detector/master/dist/BrowserLanguageDetector.min.js)
 
 ## Installation
 
@@ -20,18 +20,14 @@ Using npm:
 $ npm i --save browser-language-detector
 ```
 
+## Examples
+
 So... it works like this:
 
 ```javascript
-BrowserLanguageDetector.detect().lang;
-// en or your browser language
+BrowserLanguageDetector.detect().lang; // en or your browser language
 ```
 
-You can specify default fallback language
-```javascript
-BrowserLanguageDetector
-    .config({fallbackLanguage: 'zh'})
-    .detect()
-    .lang;
-// zh
-```
+## License
+
+  [MIT](LICENSE)
