@@ -5,18 +5,18 @@ const config = {
 };
 
 describe('BrowserLanguageDetector', () => {
-  test('Language showld be equal "en"', () => {
+  test('Language should be equal "en"', () => {
     expect(BrowserLanguageDetector.detect().lang).toBe('en');
   });
 
-  test('Language showld be equal "es"', () => {
+  test('Language should be equal "es"', () => {
     expect(BrowserLanguageDetector.config(config).detect().lang).toBe('es');
   });
 });
 
 
 describe('BrowserLanguageDetector with detectors', () => {
-  test('Language showld be equal "es"', () => {
+  test('Language should be equal "es"', () => {
     const cong = {
       fallbackLanguage: 'es',
       // detectors: [NavigatorDetector, HTMLTagDetector, QueryStringDetector]

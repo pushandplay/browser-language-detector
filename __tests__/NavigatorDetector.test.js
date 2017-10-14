@@ -7,12 +7,12 @@ const config = {
 
 describe('NavigatorDetector', () => {
   describe('Test with config', () => {
-    test('Showld be equal ["en", "ru"]', () => {
+    test('Should be equal ["en", "ru"]', () => {
       expect((new NavigatorDetector(config)).detect().languages).toEqual(['en', 'ru']);
     });
   });
-  describe('Test wuthout config', () => {
-    test('Showld be equal ["en"]', () => {
+  describe('Test without config', () => {
+    test('Should be equal ["en"]', () => {
       expect((new NavigatorDetector()).detect().languages).toEqual(['en']);
     });
   });
@@ -23,11 +23,11 @@ describe('NavigatorDetector', () => {
       value: null
     });
 
-    test('Showld be equal ["en"]', () => {
+    test('Should be equal ["en"]', () => {
       expect((new NavigatorDetector()).detect().languages).toEqual(['en']);
     });
 
-    test('Showld be equal ["en", "ru"]', () => {
+    test('Should be equal ["en", "ru"]', () => {
       expect((new NavigatorDetector(config)).detect().languages).toEqual(['en', 'ru']);
     });
   });
@@ -40,7 +40,7 @@ describe('NavigatorDetector', () => {
       }
     });
 
-    test('Showld be equal ["en", "es"]', () => {
+    test('Should be equal ["en", "es"]', () => {
       expect((new NavigatorDetector({fallbackLanguage: 'es'})).detect().languages).toEqual(['en', 'es']);
     });
   });
