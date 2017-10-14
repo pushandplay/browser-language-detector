@@ -1,16 +1,17 @@
+import {flatten} from '../src/utils';
 import NavigatorDetector from './detectors/NavigatorDetector';
 import HTMLTagDetector from './detectors/HTMLTagDetector';
 import QueryStringDetector from './detectors/QueryStringDetector';
 
 const defaultOptions = {
   fallbackLanguage: 'en',
-  whiteListLanguages: [],
-  queryString: 'lang'
+  queryString: 'lang',
+  detectors: [NavigatorDetector, HTMLTagDetector, QueryStringDetector]
 };
 
 class BrowserLanguageDetector {
   static config(options) {
-    this.options = {...defaultOptions, ...options, target: this};
+    this.options = {...defaultOptions, ...options};
     return this;
   }
 
@@ -30,10 +31,13 @@ class BrowserLanguageDetector {
   }
 
   static getDetectors() {
+    const detectors = this.options.detectors.map(A => new A(this.options).detect());
+    const langs = detectors.map(a => a.languages);
+    console.log(flatten(langs));
     return {
-      navigator: new NavigatorDetector(this.options),
-      queryString: new QueryStringDetector(this.options),
-      htmlTag: new HTMLTagDetector(this.options),
+      navigator: new NavigatorDetector(this.options).detect(),
+      queryString: new QueryStringDetector(this.options).detect(),
+      htmlTag: new HTMLTagDetector(this.options).detect(),
     };
   }
 

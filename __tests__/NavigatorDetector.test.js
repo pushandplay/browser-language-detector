@@ -1,5 +1,5 @@
 /* eslint-disable max-nested-callbacks */
-import NavigatorDetector from './NavigatorDetector';
+import NavigatorDetector from '../src/detectors/NavigatorDetector';
 
 const config = {
   fallbackLanguage: 'ru'

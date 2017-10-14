@@ -5,7 +5,9 @@ class HTMLTagDetector extends Detector {
     const htmlTag = typeof document !== 'undefined' ? document.documentElement : null;
 
     if (htmlTag && typeof htmlTag.getAttribute === 'function') {
-      this.languages = [htmlTag.getAttribute('lang')];
+      const lang = htmlTag.getAttribute('lang');
+      this.languages = [lang];
+      this.data = {lang};
     }
 
     return super.detect();
