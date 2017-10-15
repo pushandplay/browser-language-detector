@@ -23,7 +23,10 @@ class BrowserLanguageDetector {
     return this;
   }
 
-  static selectPreferredLanguage(fallbackLanguage, languages) {
+  static selectPreferredLanguage(fallbackLanguage, languages = []) {
+    if (!fallbackLanguage) {
+      throw new Error('fallbackLanguage is not defined');
+    }
     const navigatorLanguageIndex = languages.indexOf(fallbackLanguage);
     return languages[navigatorLanguageIndex] || fallbackLanguage;
   }

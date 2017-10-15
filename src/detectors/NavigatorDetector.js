@@ -3,7 +3,7 @@ import {simplify} from '../utils';
 
 class NavigatorDetector extends Detector {
   detect() {
-    const navigator = window.navigator || window.clientInformation || {};
+    const navigator = Detector.navigator(window);
     this.languages = []
       .concat(
         navigator.languages,

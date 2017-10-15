@@ -18,7 +18,7 @@ describe('NavigatorDetector', () => {
   });
 
   describe('Test without navigator and clientInformation', () => {
-    Object.defineProperty(window.navigator, 'navigator', {
+    Object.defineProperty(window, 'navigator', {
       writable: true,
       value: null
     });

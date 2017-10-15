@@ -15,6 +15,10 @@ class Detector {
       languages: uniq(this.languages)
     };
   }
+
+  static navigator(window = {}) {
+    return window.navigator || window.clientInformation || {};
+  }
 }
 
 export default Detector;
