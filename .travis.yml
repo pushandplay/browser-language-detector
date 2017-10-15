@@ -9,7 +9,6 @@ cache:
   directories:
     - node_modules
 script:
-  - "npm run test"
+  - "npm run test -- --coverage"
   - "npm run lint"
-
 after_script: "npm install coveralls2.10.0 && cat ./coverage/lcov.info | coveralls"
