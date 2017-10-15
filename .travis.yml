@@ -11,4 +11,5 @@ cache:
 script:
   - "npm run test -- --coverage"
   - "npm run lint"
-after_script: "npm install coveralls2.10.0 && cat ./coverage/lcov.info | coveralls"
+after_script:
+  - "npm install coveralls & cat ./coverage/lcov.info | coveralls"

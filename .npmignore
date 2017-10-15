@@ -8,5 +8,7 @@ coverage/
 .npmignore
 .idea
 .travis.yml
+.coveralls.yml
 /__tests__/
 /package-lock.json
+/webpack.config.js
