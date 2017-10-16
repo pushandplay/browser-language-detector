@@ -4,13 +4,13 @@ const webpack = require('webpack');
 module.exports = {
   target: 'web',
   entry: {
-    BrowserLanguageDetector: 'index.js',
+    BrowserLanguageDetector: './index.js',
     NavigatorDetector: './src/detectors/NavigatorDetector.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].min.js',
-    // library: 'BrowserLanguageDetector',
+    library: 'BrowserLanguageDetector',
     libraryTarget: 'umd',
     umdNamedDefine: true
   },

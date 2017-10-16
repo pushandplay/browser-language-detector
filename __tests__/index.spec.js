@@ -7,7 +7,7 @@ const config = {
 
 describe('BrowserLanguageDetector', () => {
   test('Language should be equal "en"', () => {
-    expect(BrowserLanguageDetector.detect().lang).toBe('en');
+    expect(BrowserLanguageDetector.lang).toBe('en');
   });
 
   test('Language should be equal "es"', () => {

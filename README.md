@@ -25,7 +25,7 @@ $ npm i --save browser-language-detector
 So... it works like this:
 
 ```javascript
-BrowserLanguageDetector.detect().lang; // en or your browser language
+BrowserLanguageDetector.lang; // en or your browser language
 ```
 
 ## License

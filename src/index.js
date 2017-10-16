@@ -32,4 +32,4 @@ class BrowserLanguageDetector {
   }
 }
 
-export default BrowserLanguageDetector;
+export default BrowserLanguageDetector.detect();
