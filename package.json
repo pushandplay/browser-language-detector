@@ -33,12 +33,14 @@
     "babel-loader": "^7.1.2",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-env": "^1.6.0",
+    "babel-preset-es3": "^1.0.1",
     "babel-preset-stage-0": "^6.24.1",
     "eslint": "^4.8.0",
     "eslint-config-airbnb": "^16.0.0",
     "eslint-plugin-import": "^2.7.0",
     "jest": "^21.2.1",
-    "webpack": "^3.7.1"
+    "webpack": "^3.7.1",
+    "webpack-bundle-analyzer": "^2.9.0"
   },
   "jest": {
     "moduleFileExtensions": [

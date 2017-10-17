@@ -1,3 +1,3 @@
-import BrowserLanguageDetector from './src';
+import BrowserLanguageDetector from './src/BrowserLanguageDetector';
 
 export default BrowserLanguageDetector;
