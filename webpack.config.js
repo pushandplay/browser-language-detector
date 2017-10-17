@@ -20,8 +20,8 @@ const UglifyJsOptions = {
 module.exports = {
   target: 'web',
   entry: {
-    BrowserLanguageDetector: './src/BrowserLanguageDetector.full.js',
-    BrowserLanguageDetectorCore: './src/BrowserLanguageDetector.core.js',
+    BrowserLanguageDetector: ['./src/polyfills.js', './src/BrowserLanguageDetector.full.js'],
+    BrowserLanguageDetectorCore: ['./src/polyfills.js', './src/BrowserLanguageDetector.core.js'],
     NavigatorDetector: './src/detectors/NavigatorDetector.js',
     HTMLTagDetector: './src/detectors/HTMLTagDetector.js',
     QueryStringDetector: './src/detectors/QueryStringDetector.js'

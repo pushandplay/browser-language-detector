@@ -1,5 +1,19 @@
 {
-  "presets": ["es3", "env", "stage-0"],
+  "presets": [
+    "es3",
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": [
+            "> 0.5%",
+            "ie >= 6"
+          ]
+        }
+      }
+    ],
+    "stage-0"
+  ],
   "plugins": [
     "babel-plugin-add-module-exports"
   ]

@@ -1,5 +1,5 @@
 /* eslint-disable max-nested-callbacks */
-import BrowserLanguageDetector from '../src';
+import BrowserLanguageDetector from '../src/BrowserLanguageDetector.full';
 
 const config = {
   fallbackLanguage: 'es'

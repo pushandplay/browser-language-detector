@@ -1,8 +1,4 @@
 /* eslint-disable quotes */
-// import 'core-js/fn/set';
-import 'core-js/fn/array/filter';
-import 'core-js/fn/array/flatten';
-import 'core-js/fn/object/assign';
 import {flatten} from '../src/utils';
 
 const defaultOptions = {
