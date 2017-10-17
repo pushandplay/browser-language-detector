@@ -10,6 +10,7 @@ const defaultOptions = {
 class BrowserLanguageDetector {
   static config(options) {
     this.options = {...defaultOptions, ...options};
+    console.log('options', this.options);
     return this;
   }
 
@@ -17,7 +18,6 @@ class BrowserLanguageDetector {
     if (!this.options) this.config();
     const detectors = this.options.detectors.map(A => new A(this.options).detect());
     this.languages = flatten(detectors.map(a => a.languages));
-
     this.lang = this.selectPreferredLanguage(this.options.fallbackLanguage, this.languages);
 
     return this;
@@ -27,6 +27,7 @@ class BrowserLanguageDetector {
     if (!fallbackLanguage) {
       throw new Error('fallbackLanguage is not defined');
     }
+
     const navigatorLanguageIndex = languages.indexOf(fallbackLanguage);
     return languages[navigatorLanguageIndex] || fallbackLanguage;
   }

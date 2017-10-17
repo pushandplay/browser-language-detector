@@ -4,16 +4,17 @@ const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 
 const UglifyJsOptions = {
   comments: false,
-  'screw-ie8': false,
+  ie8: true,
   mangle: false,
   include: /\.js$/,
   sourceMap: false,
   compress: {
-    drop_console: true,
+    drop_console: false,
     drop_debugger: true,
     dead_code: true,
     unsafe: true,
-    warnings: false
+    warnings: false,
+    unused: true
   }
 };
 
@@ -53,7 +54,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin(),
-    new BundleAnalyzerPlugin(UglifyJsOptions)
+    new webpack.optimize.UglifyJsPlugin(UglifyJsOptions),
+    new BundleAnalyzerPlugin()
   ]
 };
