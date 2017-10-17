@@ -1,4 +1,4 @@
-/* eslint-disable no-extend-native,no-var,vars-on-top,no-bitwise,no-plusplus,space-before-function-paren,object-shorthand,no-continue,max-depth,lines-around-directive,strict,prefer-rest-params,prefer-template,one-var-declaration-per-line,space-unary-ops,prefer-destructuring,spaced-comment,one-var,no-void */
+/* eslint-disable no-extend-native,no-var,vars-on-top,no-bitwise,no-plusplus,space-before-function-paren,object-shorthand,no-continue,max-depth,lines-around-directive,strict,prefer-rest-params,prefer-template,one-var-declaration-per-line,space-unary-ops,prefer-destructuring,spaced-comment,one-var,no-void,max-statements,func-names,no-unused-vars */
 if (!Array.prototype.indexOf) {
   Array.prototype.indexOf = function(searchElement, fromIndex) {
     var k;
