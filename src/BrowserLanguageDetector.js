@@ -60,7 +60,7 @@ class BrowserLanguageDetector {
    * @return {array} List of languages
    */
   static applyFallbackLanguage(languages, fallbackLanguage) {
-    if (languages.indexOf(fallbackLanguage) !== -1) {
+    if (fallbackLanguage && languages.indexOf(fallbackLanguage) !== -1) {
       return languages;
     }
     return [fallbackLanguage];
