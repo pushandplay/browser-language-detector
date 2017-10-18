@@ -9,8 +9,8 @@ const defaultOptions = {
 
 class BrowserLanguageDetector {
   static config(options) {
-    this.options = {...defaultOptions, ...options};
-    return this;
+    this.options = {...defaultOptions, ...this.options, ...options};
+    return this.detect();
   }
 
   static detect() {
@@ -32,4 +32,4 @@ class BrowserLanguageDetector {
   }
 }
 
-export default BrowserLanguageDetector.detect();
+export default BrowserLanguageDetector;
