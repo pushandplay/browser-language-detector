@@ -4,9 +4,9 @@ const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 
 const UglifyJsOptions = {
   comments: false,
-  screw_ie8: false,
+  screw_ie8: true,
   mangle: false,
-  include: /\.js$/,
+  include: /\.(js)$/,
   sourceMap: false,
   compress: {
     drop_console: false,
@@ -30,7 +30,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].min.js',
-    library: 'BrowserLanguageDetector',
+    library: '[name]',
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
