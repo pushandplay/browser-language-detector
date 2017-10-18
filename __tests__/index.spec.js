@@ -1,5 +1,5 @@
 /* eslint-disable max-nested-callbacks */
-import BrowserLanguageDetector from '../src';
+import BrowserLanguageDetector from '../src/BrowserLanguageDetector.full';
 
 const config = {
   fallbackLanguage: 'es'
@@ -7,11 +7,15 @@ const config = {
 
 describe('BrowserLanguageDetector', () => {
   test('Language should be equal "en"', () => {
-    expect(BrowserLanguageDetector.detect().lang).toBe('en');
+    expect(BrowserLanguageDetector.lang).toBe('en');
   });
 
   test('Language should be equal "es"', () => {
     expect(BrowserLanguageDetector.config(config).detect().lang).toBe('es');
+  });
+
+  test('Language should be equal "es" (detect)', () => {
+    expect(BrowserLanguageDetector.detect().lang).toBe('es');
   });
 });
 

@@ -1,23 +1,22 @@
+/* eslint-disable quotes */
 import {flatten} from '../src/utils';
-import NavigatorDetector from './detectors/NavigatorDetector';
 
 const defaultOptions = {
   fallbackLanguage: 'en',
   queryString: 'lang',
-  detectors: [NavigatorDetector]
+  detectors: []
 };
 
 class BrowserLanguageDetector {
   static config(options) {
-    this.options = {...defaultOptions, ...options};
-    return this;
+    this.options = {...defaultOptions, ...this.options, ...options};
+    return this.detect();
   }
 
   static detect() {
     if (!this.options) this.config();
     const detectors = this.options.detectors.map(A => new A(this.options).detect());
     this.languages = flatten(detectors.map(a => a.languages));
-
     this.lang = this.selectPreferredLanguage(this.options.fallbackLanguage, this.languages);
 
     return this;
@@ -27,6 +26,7 @@ class BrowserLanguageDetector {
     if (!fallbackLanguage) {
       throw new Error('fallbackLanguage is not defined');
     }
+
     const navigatorLanguageIndex = languages.indexOf(fallbackLanguage);
     return languages[navigatorLanguageIndex] || fallbackLanguage;
   }
