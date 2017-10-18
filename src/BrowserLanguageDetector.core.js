@@ -5,5 +5,4 @@ const detectors = [
   NavigatorDetector,
 ];
 
-
 export default BrowserLanguageDetector.config({detectors});

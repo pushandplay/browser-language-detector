@@ -1,6 +1,6 @@
 {
   "name": "browser-language-detector",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "A lightweight cross-browser JavaScript library for detecting browser and user language",
   "main": "index.js",
   "scripts": {
