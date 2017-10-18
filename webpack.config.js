@@ -4,7 +4,7 @@ const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 
 const UglifyJsOptions = {
   comments: false,
-  ie8: true,
+  screw_ie8: false,
   mangle: false,
   include: /\.js$/,
   sourceMap: false,

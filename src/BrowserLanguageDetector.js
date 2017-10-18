@@ -10,7 +10,6 @@ const defaultOptions = {
 class BrowserLanguageDetector {
   static config(options) {
     this.options = {...defaultOptions, ...options};
-    console.log('options', this.options);
     return this;
   }
 
