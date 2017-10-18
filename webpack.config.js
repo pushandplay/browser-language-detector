@@ -29,7 +29,7 @@ module.exports = {
     filename: '[name].min.js',
     library: '[name]',
     libraryTarget: 'umd',
-    umdNamedDefine: true
+    umdNamedDefine: false
   },
   resolve: {
     extensions: ['.js'],
