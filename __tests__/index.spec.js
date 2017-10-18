@@ -13,6 +13,10 @@ describe('BrowserLanguageDetector', () => {
   test('Language should be equal "es"', () => {
     expect(BrowserLanguageDetector.config(config).detect().lang).toBe('es');
   });
+
+  test('Language should be equal "es" (detect)', () => {
+    expect(BrowserLanguageDetector.detect().lang).toBe('es');
+  });
 });
 
 describe('BrowserLanguageDetector.selectPreferredLanguage()', () => {

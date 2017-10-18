@@ -23,9 +23,6 @@ module.exports = {
   entry: {
     BrowserLanguageDetector: ['./src/polyfills.js', './src/BrowserLanguageDetector.full.js'],
     BrowserLanguageDetectorCore: ['./src/polyfills.js', './src/BrowserLanguageDetector.core.js'],
-    NavigatorDetector: './src/detectors/NavigatorDetector.js',
-    HTMLTagDetector: './src/detectors/HTMLTagDetector.js',
-    QueryStringDetector: './src/detectors/QueryStringDetector.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -55,6 +52,6 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin(UglifyJsOptions),
-    // new BundleAnalyzerPlugin()
+    new BundleAnalyzerPlugin()
   ]
 };

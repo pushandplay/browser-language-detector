@@ -9,8 +9,10 @@
 <script src="../dist/BrowserLanguageDetector.min.js"></script>
 <script>
   window.onload = function () {
-    //console.log(window.BrowserLanguageDetector.lang);
+    console.log(window.BrowserLanguageDetector.lang);
     console.log(window.BrowserLanguageDetector.config({fallbackLanguage: 'ru'}).lang);
+    console.log(window.BrowserLanguageDetector.config({fallbackLanguage: 'en'}).lang);
+    console.log(window.BrowserLanguageDetector.config({fallbackLanguage: 'es'}).lang);
   };
 </script>
 </body>

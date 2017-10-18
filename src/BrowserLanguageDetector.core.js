@@ -1,3 +1,9 @@
 import BrowserLanguageDetector from './BrowserLanguageDetector';
+import NavigatorDetector from './detectors/NavigatorDetector';
 
-export default BrowserLanguageDetector;
+const detectors = [
+  NavigatorDetector,
+];
+
+
+export default BrowserLanguageDetector.config({detectors});

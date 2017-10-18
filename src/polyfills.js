@@ -89,7 +89,6 @@ if (!Array.prototype.reduce) {
     return value;
   };
 }
-//  TODO: check it if ready needed
 if (!Object.assign) {
   Object.defineProperty(Object, 'assign', {
     enumerable: false,
