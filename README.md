@@ -1,16 +1,16 @@
-[![NPM](https://nodei.co/npm/browser-language-detector.png?global=true)](https://nodei.co/npm/browser-language-detector/)
+
+A lightweight cross-browser JavaScript library for detecting browser and user language.
+
 
 [![NPM][npm]][npm-url]
-[![Build Status][build]][build-url]
+[![Build Status][travis]][travis-url]
 [![Coverage Status][coverage]][coverage-url]
 [![Quality][quality]][quality-url]
 [![License][license]][license-url]
 
-A lightweight cross-browser JavaScript library for detecting browser language.
-
 ## Download
 
-[Latest build](https://raw.githubusercontent.com/pushandplay/browser-language-detector/master/dist/BrowserLanguageDetector.min.js)
+[Latest build][download-url]
 
 ## Installation
 
@@ -35,13 +35,15 @@ BrowserLanguageDetector.lang; // en or your browser language
 ## License
 
   [MIT](LICENSE)
+  
 
+[download-url]: https://raw.githubusercontent.com/pushandplay/browser-language-detector/master/dist/BrowserLanguageDetector.min.js
 
 [npm]: https://img.shields.io/npm/v/browser-language-detector.svg
 [npm-url]: https://www.npmjs.com/package/browser-language-detector
 
-[build]: https://travis-ci.org/pushandplay/browser-language-detector.svg?branch=master
-[build-url]: https://travis-ci.org/pushandplay/browser-language-detector
+[travis]: https://travis-ci.org/pushandplay/browser-language-detector.svg?branch=master
+[travis-url]: https://travis-ci.org/pushandplay/browser-language-detector
 
 [coverage]: https://coveralls.io/repos/github/pushandplay/browser-language-detector/badge.svg?branch=master
 [coverage-url]: https://coveralls.io/github/pushandplay/browser-language-detector?branch=master
