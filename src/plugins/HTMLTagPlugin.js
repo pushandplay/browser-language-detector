@@ -1,6 +1,6 @@
-import Detector from '../Detector';
+import Plugin from '../Plugin';
 
-class HTMLTagDetector extends Detector {
+class HTMLTagPlugin extends Plugin {
   detect() {
     const htmlTag = typeof document !== 'undefined' ? document.documentElement : null;
 
@@ -14,4 +14,4 @@ class HTMLTagDetector extends Detector {
   }
 }
 
-export default HTMLTagDetector;
+export default HTMLTagPlugin;

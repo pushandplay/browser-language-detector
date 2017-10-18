@@ -1,12 +1,12 @@
 import BrowserLanguageDetector from './BrowserLanguageDetector';
-import NavigatorDetector from './detectors/NavigatorDetector';
-import HTMLTagDetector from './detectors/HTMLTagDetector';
-import QueryStringDetector from './detectors/QueryStringDetector';
+import NavigatorPlugin from './plugins/NavigatorPlugin';
+import HTMLTagPlugin from './plugins/HTMLTagPlugin';
+import QueryStringPlugin from './plugins/QueryStringPlugin';
 
-const detectors = [
-  NavigatorDetector,
-  HTMLTagDetector,
-  QueryStringDetector
+const plugins = [
+  NavigatorPlugin,
+  HTMLTagPlugin,
+  QueryStringPlugin
 ];
 
-export default BrowserLanguageDetector.config({detectors});
+export default BrowserLanguageDetector.config({plugins});

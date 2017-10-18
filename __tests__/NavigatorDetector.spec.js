@@ -1,19 +1,19 @@
 /* eslint-disable max-nested-callbacks */
-import NavigatorDetector from '../src/detectors/NavigatorDetector';
+import NavigatorPlugin from '../src/plugins/NavigatorPlugin';
 
 const config = {
   fallbackLanguage: 'ru'
 };
 
-describe('NavigatorDetector', () => {
+describe('NavigatorPlugin', () => {
   describe('Test with config', () => {
     test('Should be equal ["en", "ru"]', () => {
-      expect((new NavigatorDetector(config)).detect().languages).toEqual(['en', 'ru']);
+      expect((new NavigatorPlugin(config)).detect().languages).toEqual(['en', 'ru']);
     });
   });
   describe('Test without config', () => {
     test('Should be equal ["en"]', () => {
-      expect((new NavigatorDetector()).detect().languages).toEqual(['en']);
+      expect((new NavigatorPlugin()).detect().languages).toEqual(['en']);
     });
   });
 
@@ -24,11 +24,11 @@ describe('NavigatorDetector', () => {
     });
 
     test('Should be equal ["en"]', () => {
-      expect((new NavigatorDetector()).detect().languages).toEqual(['en']);
+      expect((new NavigatorPlugin()).detect().languages).toEqual(['en']);
     });
 
     test('Should be equal ["en", "ru"]', () => {
-      expect((new NavigatorDetector(config)).detect().languages).toEqual(['en', 'ru']);
+      expect((new NavigatorPlugin(config)).detect().languages).toEqual(['en', 'ru']);
     });
   });
 
@@ -41,7 +41,7 @@ describe('NavigatorDetector', () => {
     });
 
     test('Should be equal ["en", "es"]', () => {
-      expect((new NavigatorDetector({fallbackLanguage: 'es'})).detect().languages).toEqual(['en', 'es']);
+      expect((new NavigatorPlugin({fallbackLanguage: 'es'})).detect().languages).toEqual(['en', 'es']);
     });
   });
 });

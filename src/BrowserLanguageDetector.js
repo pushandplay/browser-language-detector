@@ -4,7 +4,8 @@ import {flatten, uniq} from '../src/utils';
 const defaultOptions = {
   fallbackLanguage: 'en',
   queryString: 'lang',
-  detectors: []
+  plugins: [],
+  whiteListLanguages: []
 };
 
 class BrowserLanguageDetector {
@@ -15,15 +16,15 @@ class BrowserLanguageDetector {
 
   static detect() {
     if (!this.options) this.config();
-    const detectorsResult = this.applyDetectors(this.options.detectors, this.options);
-    this.languages = uniq(flatten(detectorsResult.map(a => a.languages)));
+    const pluginsResult = this.applyPlugins(this.options.plugins, this.options);
+    this.languages = uniq(flatten(pluginsResult.map(a => a.languages)));
     this.language = this.selectPreferredLanguage(this.options.fallbackLanguage, this.languages);
 
     return this;
   }
 
-  static applyDetectors(detectors, detectorsOptions) {
-    return detectors.map(A => new A(detectorsOptions).detect());
+  static applyPlugins(plugins, options) {
+    return plugins.map(A => new A(options).detect());
   }
 
   static selectPreferredLanguage(fallbackLanguage, languages = []) {

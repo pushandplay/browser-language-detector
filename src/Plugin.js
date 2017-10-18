@@ -1,6 +1,6 @@
 import {uniq} from './utils';
 
-class Detector {
+class Plugin {
   languages = [];
   data = {};
 
@@ -21,4 +21,4 @@ class Detector {
   }
 }
 
-export default Detector;
+export default Plugin;

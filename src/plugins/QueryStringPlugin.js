@@ -1,7 +1,7 @@
 /* eslint-disable max-depth */
-import Detector from '../Detector';
+import Plugin from '../Plugin';
 
-class QueryStringDetector extends Detector {
+class QueryStringPlugin extends Plugin {
   detect() {
     if (typeof window !== 'undefined') {
       const query = window.location.search.substring(1);
@@ -21,4 +21,4 @@ class QueryStringDetector extends Detector {
   }
 }
 
-export default QueryStringDetector;
+export default QueryStringPlugin;

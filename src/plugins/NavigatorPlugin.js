@@ -1,9 +1,9 @@
-import Detector from '../Detector';
+import Plugin from '../Plugin';
 import {simplify} from '../utils';
 
-class NavigatorDetector extends Detector {
+class NavigatorPlugin extends Plugin {
   detect() {
-    const navigator = Detector.navigator(window);
+    const navigator = Plugin.navigator(window);
     this.languages = []
       .concat(
         navigator.languages,
@@ -20,4 +20,4 @@ class NavigatorDetector extends Detector {
   }
 }
 
-export default NavigatorDetector;
+export default NavigatorPlugin;
