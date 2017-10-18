@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --verbose",
-    "build": "webpack",
-    "lint": "./node_modules/.bin/eslint src/ --ext .js"
+    "build": "webpack -p",
+    "lint": "./node_modules/.bin/eslint src/ --ext .js",
+    "coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
