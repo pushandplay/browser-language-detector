@@ -13,10 +13,8 @@ class NavigatorDetector extends Detector {
         navigator.systemLanguage,
         this.options.fallbackLanguage
       )
-      .filter(language => language);
-
-    this.data = {languages: this.languages};
-    this.languages.map(language => simplify(language));
+      .filter(language => language)
+      .map(language => simplify(language));
 
     return super.detect();
   }
