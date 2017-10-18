@@ -11,7 +11,7 @@ class Detector {
 
   detect() {
     return {
-      ...this.data,
+      data: this.data,
       languages: uniq(this.languages)
     };
   }

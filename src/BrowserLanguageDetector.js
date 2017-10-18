@@ -1,5 +1,5 @@
 /* eslint-disable quotes */
-import {flatten} from '../src/utils';
+import {flatten, uniq} from '../src/utils';
 
 const defaultOptions = {
   fallbackLanguage: 'en',
@@ -8,16 +8,18 @@ const defaultOptions = {
 };
 
 class BrowserLanguageDetector {
-  static config(options) {
-    this.options = {...defaultOptions, ...this.options, ...options};
+  static config(configOptions) {
+    this.options = {...defaultOptions, ...this.options, ...configOptions};
     return this.detect();
   }
 
   static detect() {
     if (!this.options) this.config();
-    const detectors = this.options.detectors.map(A => new A(this.options).detect());
-    this.languages = flatten(detectors.map(a => a.languages));
-    this.lang = this.selectPreferredLanguage(this.options.fallbackLanguage, this.languages);
+    const detectorsResult = this.options.detectors.map(A => new A(this.options).detect());
+    this.languages = uniq(flatten(detectorsResult.map(a => a.languages)));
+    this.language = this.selectPreferredLanguage(this.options.fallbackLanguage, this.languages);
+
+    console.log(detectorsResult);
 
     return this;
   }

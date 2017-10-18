@@ -24,12 +24,18 @@ Using npm:
 $ npm i --save browser-language-detector
 ```
 
-## Examples
+## API
 
-So... it works like this:
+Get preferred language
 
 ```javascript
-BrowserLanguageDetector.lang; // en or your browser language
+BrowserLanguageDetector.language;
+```
+
+Get list of all languages
+
+```javascript
+BrowserLanguageDetector.languages;
 ```
 
 ## License

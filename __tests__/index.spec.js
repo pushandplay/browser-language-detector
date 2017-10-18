@@ -7,15 +7,15 @@ const config = {
 
 describe('BrowserLanguageDetector', () => {
   test('Language should be equal "en"', () => {
-    expect(BrowserLanguageDetector.lang).toBe('en');
+    expect(BrowserLanguageDetector.language).toBe('en');
   });
 
   test('Language should be equal "es"', () => {
-    expect(BrowserLanguageDetector.config(config).detect().lang).toBe('es');
+    expect(BrowserLanguageDetector.config(config).detect().language).toBe('es');
   });
 
   test('Language should be equal "es" (detect)', () => {
-    expect(BrowserLanguageDetector.detect().lang).toBe('es');
+    expect(BrowserLanguageDetector.detect().language).toBe('es');
   });
 });
 
@@ -35,6 +35,6 @@ describe('BrowserLanguageDetector with detectors', () => {
       // detectors: [NavigatorDetector, HTMLTagDetector, QueryStringDetector]
     };
 
-    expect(BrowserLanguageDetector.config(cong).detect().lang).toBe('es');
+    expect(BrowserLanguageDetector.config(cong).detect().language).toBe('es');
   });
 });
