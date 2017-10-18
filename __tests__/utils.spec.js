@@ -17,11 +17,7 @@ describe('Test utils flatten', () => {
     expect(flatten([0, 1, 2])).toEqual([0, 1, 2]);
   });
 
-  test('Should be equal [0,1,2,3]', () => {
-    expect(flatten([0, [1, 2], 3])).toEqual([0, 1, 2, 3]);
-  });
-
-  test('Should be equal [0,1,1,2]', () => {
-    expect(flatten([0, [1, [1], 2]])).toEqual([0, 1, 1, 2]);
+  test('Should be equal [3,1,6,3]', () => {
+    expect(flatten([3, [1, 6], 3])).toEqual([3, 1, 6, 3]);
   });
 });

@@ -1,5 +1,7 @@
-const uniq = array => [...new Set(array)];
+const uniq = array => array.reduce((a, b) => {
+  if (a.indexOf(b) < 0) a.push(b);
+  return a;
+}, []);
 const simplify = locale => locale.replace(/-.*/, '').toLowerCase();
-const flatten = (arr = []) => arr.reduce((flat, toFlatten) => flat.concat(Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten), []);
-
+const flatten = (array = []) => Array.prototype.concat(...array);
 export {uniq, simplify, flatten};
