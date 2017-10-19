@@ -29,13 +29,19 @@ $ npm i --save browser-language-detector
 Get preferred language
 
 ```javascript
-BrowserLanguageDetector.language;
+BrowserLanguageDetector.preferredLanguage;
 ```
 
-Get list of all languages
+Get list of all detected languages
 
 ```javascript
-BrowserLanguageDetector.languages;
+BrowserLanguageDetector.detectedLanguages;
+```
+
+Set up your preferred language and set up white list of supported languages of your system. And get preferred detected language
+
+```
+BrowserLanguageDetector.config({fallbackLanguage: 'it', whiteListLanguages: ['en','zhen', 'ru']});
 ```
 
 ## License
