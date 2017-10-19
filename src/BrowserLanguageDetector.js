@@ -2,7 +2,7 @@
 import {flatten, uniq} from '../src/utils';
 
 const defaultOptions = {
-  fallbackLanguage: 'en',
+  fallbackLanguage: undefined,
   // precision: false, TODO:
   // queryString: 'lang', TODO: move into QueryStringPlugin
   plugins: [],
@@ -17,6 +17,17 @@ class BrowserLanguageDetector {
    */
   static config(configOptions) {
     this.options = {...defaultOptions, ...this.options, ...configOptions};
+
+    if (!this.options.plugins && !this.options.plugins.length) {
+      throw new Error('Using no one plugins');
+    }
+    if (!this.options.fallbackLanguage && this.options.whiteListLanguages && this.options.whiteListLanguages.length) {
+      throw new Error('BrowserLanguageDetector. WhiteListLanguages language using only together with fallbackLanguage');
+    }
+    if (this.options.fallbackLanguage && (!this.options.whiteListLanguages || !this.options.whiteListLanguages.length)) {
+      throw new Error('BrowserLanguageDetector. FallbackLanguage language using only together with whiteListLanguages');
+    }
+
     return this.detect();
   }
 
@@ -71,12 +82,15 @@ class BrowserLanguageDetector {
    * @param {string} fallbackLanguage
    */
   static selectPreferredLanguage(languages = [], fallbackLanguage) {
-    if (!fallbackLanguage) {
+    /** if (!fallbackLanguage) {
       throw new Error('fallbackLanguage is not defined');
+    } */
+    if (!fallbackLanguage) {
+      return languages[0];
     }
 
     const navigatorLanguageIndex = languages.indexOf(fallbackLanguage);
-    return languages[navigatorLanguageIndex] || fallbackLanguage;
+    return languages[navigatorLanguageIndex];
   }
 }
 

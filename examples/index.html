@@ -9,11 +9,11 @@
 <script src="../dist/BrowserLanguageDetector.min.js"></script>
 <script>
   window.onload = function () {
-    console.log(window.BrowserLanguageDetector.language);
-    console.log(window.BrowserLanguageDetector.config({fallbackLanguage: 'ru'}).language);
-    console.log(window.BrowserLanguageDetector.config({fallbackLanguage: 'en'}).language);
-    console.log(window.BrowserLanguageDetector.config({fallbackLanguage: 'es'}).language);
-    console.dir(window.BrowserLanguageDetector);
+    //console.log(window.BrowserLanguageDetector.language);
+    //console.log(window.BrowserLanguageDetector.config({fallbackLanguage: 'ru'}).language);
+    //console.log(window.BrowserLanguageDetector.config({fallbackLanguage: 'en'}).language);
+    //console.log(window.BrowserLanguageDetector.config({fallbackLanguage: 'es'}).language);
+    console.dir(window.BrowserLanguageDetector.config({fallbackLanguage: 'es', whiteListLanguages: ['it', 'ar']}));
   };
 </script>
 </body>
