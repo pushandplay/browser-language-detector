@@ -38,9 +38,9 @@ class BrowserLanguageDetector {
   static detect() {
     if (!this.options) this.config();
     const pluginsResult = this.applyPlugins(this.options.plugins, this.options);
-    this.detectedLanguages = uniq(flatten(pluginsResult.map(a => a.languages)));
-    const languages = this.applyWhiteListLanguages(this.detectedLanguages, this.options.whiteListLanguages);
-    this.preferredLanguage = this.selectPreferredLanguage(languages, this.options.fallbackLanguage, this.options.whiteListLanguages);
+    this.detectedLanguages = uniq(flatten(pluginsResult.map(a => a.detectedLanguages)));
+    const detectedLanguagesWithWhiteListLanguages = this.applyWhiteListLanguages(this.detectedLanguages, this.options.whiteListLanguages);
+    this.preferredLanguage = this.selectPreferredLanguage(detectedLanguagesWithWhiteListLanguages, this.options.fallbackLanguage, this.options.whiteListLanguages);
 
     return this;
   }
@@ -87,16 +87,15 @@ class BrowserLanguageDetector {
    * @param {string} whiteListLanguages - List of supported  languages
    */
   static selectPreferredLanguage(languages, fallbackLanguage, whiteListLanguages) {
-    if (fallbackLanguage && fallbackLanguage.length && whiteListLanguages && whiteListLanguages.length) {
+    if (fallbackLanguage && whiteListLanguages) {
       if (whiteListLanguages.indexOf(fallbackLanguage) === -1) {
         throw new Error('fallbackLanguage should be in whiteListLanguages');
       }
       return whiteListLanguages[0];
-    } else if (languages && languages.length) {
+    } else if (languages) {
       return languages[0];
     }
-
-    throw new Error('prefered language can not detected');
+    throw new Error('preferred language can not be detected');
   }
 }
 

@@ -1,7 +1,7 @@
 import {uniq} from './utils';
 
 class Plugin {
-  languages = [];
+  detectedLanguages = [];
   data = {};
 
   /**
@@ -17,7 +17,7 @@ class Plugin {
   detect() {
     return {
       data: this.data,
-      languages: uniq(this.languages)
+      detectedLanguages: uniq(this.detectedLanguages)
     };
   }
 

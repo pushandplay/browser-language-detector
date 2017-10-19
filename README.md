@@ -41,7 +41,7 @@ BrowserLanguageDetector.detectedLanguages;
 Set up your preferred language and set up white list of supported languages of your system. And get preferred detected language
 
 ```
-BrowserLanguageDetector.config({fallbackLanguage: 'it', whiteListLanguages: ['en','zhen', 'ru']});
+BrowserLanguageDetector.config({fallbackLanguage: 'it', whiteListLanguages: ['en', 'zh', 'en', 'ru']});
 ```
 
 ## License

@@ -1,10 +1,10 @@
 import Plugin from '../Plugin';
-import {simplify} from '../utils';
+import {simplify, uniq} from '../utils';
 
 class NavigatorPlugin extends Plugin {
   detect() {
     const navigator = Plugin.navigator(window);
-    this.languages = []
+    this.detectedLanguages = []
       .concat(
         navigator.languages,
         navigator.language,
@@ -14,6 +14,7 @@ class NavigatorPlugin extends Plugin {
       )
       .filter(language => language)
       .map(language => simplify(language));
+    this.detectedLanguages = uniq(this.detectedLanguages);
 
     return super.detect();
   }

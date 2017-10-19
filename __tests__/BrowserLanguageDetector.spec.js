@@ -2,20 +2,25 @@
 import BrowserLanguageDetector from '../src/BrowserLanguageDetector.full';
 
 const config = {
-  fallbackLanguage: 'es'
+  fallbackLanguage: 'es',
+  whiteListLanguages: ['es', 'en']
 };
 
 describe('BrowserLanguageDetector', () => {
   test('Language should be equal "en"', () => {
-    expect(BrowserLanguageDetector.language).toBe('en');
+    expect(BrowserLanguageDetector).toHaveProperty('preferredLanguage', 'en');
   });
 
-  test('Language should be equal "es"', () => {
-    expect(BrowserLanguageDetector.config(config).detect().language).toBe('es');
+  test('The preferredLanguage language should be "es"', () => {
+    expect(BrowserLanguageDetector.config(config)).toHaveProperty('preferredLanguage', 'es');
   });
 
-  test('Language should be equal "es" (detect)', () => {
-    expect(BrowserLanguageDetector.detect().language).toBe('es');
+  test('The options.fallbackLanguage language should be "es"', () => {
+    expect(BrowserLanguageDetector.config(config).options).toHaveProperty('fallbackLanguage', 'es');
+  });
+
+  test('The options.whiteListLanguages language should be equal ["es", "en"]', () => {
+    expect(BrowserLanguageDetector.config(config).options.whiteListLanguages).toEqual(['es', 'en']);
   });
 
   test('Languages should be equal ["en", "es"]', () => {
@@ -40,21 +45,31 @@ describe('BrowserLanguageDetector', () => {
 });
 
 describe('BrowserLanguageDetector.selectPreferredLanguage()', () => {
-  test('Should throw error without params', () => {
-    expect(BrowserLanguageDetector.selectPreferredLanguage).toThrowError('fallbackLanguage is not defined');
-  });
-  test('Should be equal "en"', () => {
-    expect(BrowserLanguageDetector.selectPreferredLanguage([], 'en')).toEqual('en');
-  });
-});
+  test('The preferredLanguage should be "es"', () => {
+    const languages = ['en', 'ru', 'es'];
+    const fallbackLanguage = 'ru';
+    const whiteListLanguages = ['es', 'ru'];
 
-describe('BrowserLanguageDetector with plugins', () => {
-  test('Language should be equal "es"', () => {
-    const cong = {
-      fallbackLanguage: 'es',
-      // detectors: [NavigatorDetector, HTMLTagDetector, QueryStringDetector]
-    };
+    expect(BrowserLanguageDetector.selectPreferredLanguage(languages, fallbackLanguage, whiteListLanguages)).toBe('es');
+  });
 
-    expect(BrowserLanguageDetector.config(cong).detect().language).toBe('es');
+  test('Should be error when if the preferred language is not in the white list', () => {
+    const languages = ['zh'];
+    const fallbackLanguage = 'ruw';
+    const whiteListLanguages = ['es', 'it'];
+
+    expect(() => {
+      BrowserLanguageDetector.selectPreferredLanguage(languages, fallbackLanguage, whiteListLanguages);
+    }).toThrowError('fallbackLanguage should be in whiteListLanguages');
+  });
+
+  test('Should be error when preferred language can not be detected', () => {
+    const languages = undefined;
+    const fallbackLanguage = 'it';
+    const whiteListLanguages = ['ru', 'es', 'it'];
+
+    expect(() => {
+      BrowserLanguageDetector.selectPreferredLanguage(languages, fallbackLanguage, whiteListLanguages);
+    }).toThrowError('preferred language can not be detected');
   });
 });
