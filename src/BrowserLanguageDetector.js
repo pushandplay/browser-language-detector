@@ -1,9 +1,13 @@
 /* eslint-disable quotes */
+/**
+ * How it works ...
+ * TODO
+ */
 import {flatten, uniq} from '../src/utils';
 
 const defaultOptions = {
   fallbackLanguage: undefined,
-  // precision: false, TODO:
+  // precision: false, TODO: will be implemented in next version
   // queryString: 'lang', TODO: move into QueryStringPlugin
   plugins: [],
   whiteListLanguages: []
@@ -34,9 +38,9 @@ class BrowserLanguageDetector {
   static detect() {
     if (!this.options) this.config();
     const pluginsResult = this.applyPlugins(this.options.plugins, this.options);
-    this.languages = uniq(flatten(pluginsResult.map(a => a.languages)));
-    this.languages = this.applyWhiteListLanguages(this.languages, this.options.whiteListLanguages);
-    this.language = this.selectPreferredLanguage(this.languages, this.options.fallbackLanguage);
+    this.detectedLanguages = uniq(flatten(pluginsResult.map(a => a.languages)));
+    const languages = this.applyWhiteListLanguages(this.detectedLanguages, this.options.whiteListLanguages);
+    this.preferredLanguage = this.selectPreferredLanguage(languages, this.options.fallbackLanguage, this.options.whiteListLanguages);
 
     return this;
   }
@@ -80,17 +84,19 @@ class BrowserLanguageDetector {
   /**
    * @param {array} languages - List of supported languages
    * @param {string} fallbackLanguage
+   * @param {string} whiteListLanguages - List of supported  languages
    */
-  static selectPreferredLanguage(languages = [], fallbackLanguage) {
-    /** if (!fallbackLanguage) {
-      throw new Error('fallbackLanguage is not defined');
-    } */
-    if (!fallbackLanguage) {
+  static selectPreferredLanguage(languages, fallbackLanguage, whiteListLanguages) {
+    if (fallbackLanguage && fallbackLanguage.length && whiteListLanguages && whiteListLanguages.length) {
+      if (whiteListLanguages.indexOf(fallbackLanguage) === -1) {
+        throw new Error('fallbackLanguage should be in whiteListLanguages');
+      }
+      return whiteListLanguages[0];
+    } else if (languages && languages.length) {
       return languages[0];
     }
 
-    const navigatorLanguageIndex = languages.indexOf(fallbackLanguage);
-    return languages[navigatorLanguageIndex];
+    throw new Error('prefered language can not detected');
   }
 }
 

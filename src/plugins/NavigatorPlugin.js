@@ -11,7 +11,6 @@ class NavigatorPlugin extends Plugin {
         navigator.userLanguage,
         navigator.browserLanguage,
         navigator.systemLanguage,
-        this.options.fallbackLanguage
       )
       .filter(language => language)
       .map(language => simplify(language));
