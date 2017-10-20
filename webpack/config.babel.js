@@ -1,6 +1,7 @@
-const path = require('path');
-const webpack = require('webpack');
-const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
+// https://github.com/Tomekmularczyk/react-starter
+import path from 'path';
+import webpack from 'webpack';
+import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
 
 const UglifyJsOptions = {
   comments: false,
@@ -25,7 +26,7 @@ module.exports = {
     BrowserLanguageDetectorCore: ['./src/polyfills.js', './src/BrowserLanguageDetector.core.js'],
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '../dist'),
     filename: '[name].min.js',
     library: '[name]',
     libraryTarget: 'umd',

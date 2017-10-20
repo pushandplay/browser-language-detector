@@ -11,4 +11,5 @@ coverage/
 .coveralls.yml
 /__tests__/
 /package-lock.json
-/webpack.config.js
+/webpack/webpack.config.js
+/webpack/

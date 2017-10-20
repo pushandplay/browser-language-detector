@@ -95,7 +95,7 @@ class BrowserLanguageDetector {
     } else if (languages) {
       return languages[0];
     }
-    throw new Error('preferred language can not be detected');
+    // throw new Error('preferred language can not be detected');
   }
 }
 

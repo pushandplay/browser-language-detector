@@ -4,9 +4,10 @@
   "description": "A lightweight cross-browser JavaScript library for detecting browser and user language",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose",
-    "build": "webpack -p",
+    "start": "webpack --config webpack/config.babel.js --progress --env.development --watch",
+    "build": "webpack --config webpack/config.babel.js --progress --env.production -p",
     "lint": "./node_modules/.bin/eslint src/ --ext .js",
+    "test": "jest --verbose",
     "coverage": "jest --coverage"
   },
   "repository": {
